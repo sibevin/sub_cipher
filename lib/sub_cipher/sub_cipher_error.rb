@@ -1,17 +1,17 @@
 module SubCipher
   class SubCipherError < StandardError
     ERRORS = {
-      unknown_option: {
-        value: 1,
-        msg: "Unknown option"
+      :unknown_option => {
+        :value => 1,
+        :msg => "Unknown option"
       },
-      duplicated_option: {
-        value: 2,
-        msg: "The same options are given."
+      :duplicated_option => {
+        :value => 2,
+        :msg => "The same options are given."
       },
-      invalid_option_value: {
-        value: 3,
-        msg: "The given option value is invalid."
+      :invalid_option_value => {
+        :value => 3,
+        :msg => "The given option value is invalid."
       },
     }
 
