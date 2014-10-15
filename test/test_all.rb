@@ -52,7 +52,7 @@ class TestByte < Minitest::Test
     target_str = "aaabbbcccdddeee"
     encoded_str = sc.encode(target_str)
     assert(encoded_str == "bbbcccaaadddeee")
-    assert_equal(sc.seed, map.chars.uniq.sort.join)
+    assert_equal(sc.seed, map.chars.to_a.uniq.sort.join)
     assert_match(/^[abc]*$/, sc.map)
 
     sc = SubCipher.gen(m: map)
@@ -67,7 +67,7 @@ class TestByte < Minitest::Test
     target_str = "AAAbbbcccdddeee"
     encoded_str = sc.encode(target_str)
     assert(encoded_str == "BBBcccaaadddeee")
-    assert_equal(sc.seed, map.chars.uniq.sort.join)
+    assert_equal(sc.seed, map.chars.to_a.uniq.sort.join)
     assert_match(/^[abc]*$/, sc.map)
   end
 
