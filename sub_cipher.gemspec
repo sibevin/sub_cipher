@@ -9,57 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sibevin Wang"]
   spec.email         = ["sibevin@gmail.com"]
   spec.summary       = %q{Encode/Decode text with substitution cipher}
-  spec.description   = <<-EOF
-Usage:
-
-    sc = SubCipher.gen
-    sc.encode("Here is a secret.")
-    # "Wyky gn q nyakyr."
-    sc.decode("Wyky gn q nyakyr.")
-    # "Here is a secret."
-    sc.seed
-    # "abcdefghijklmnopqrstuvwxyz"
-    sc.map
-    # "qeahyftwgpjixodzbknrlscvum"
- 
-Use :s (or :seed) to map the given seeds only
-
-    sc = SubCipher.gen(seed: "abcde")
-    sc.encode("Here is a secret.")
-    # "Hcrc is e scbrct."
-    sc.decode("Hcrc is e scbrct.")
-    # "Here is a secret."
-    sc.seed
-    # "abcde"
-    sc.map
-    # "edbac"
-
-Use :m (or :map) option to initalize cipher with a map
-
-    sc = SubCipher.gen(seed: "bdeac")
-    sc.encode("Here is a secret.")
-    # "Hara is b saerat."
-    sc.decode("Hara is b saerat.")
-    # "Here is a secret."
-    sc.seed
-    # "abcde"
-    sc.map
-    # "bdeca"
-
-If you want to map letters with different cases to different letters, use "k: false" (or "keep_case: false") option.
-
-    sc = SubCipher.gen(keep_case: false)
-    sc.encode("Here is a secret.")
-    # "alXl wE s EleXlk."
-    sc.decode("alXl wE s EleXlk.")
-    # "Here is a secret."
-    sc.seed
-    # "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    sc.map
-    # "PNAgWKOaxtCUdqHpIuJRhjTMnDsbeQlFiGwrzLfBvVYXEkZcoSmy"
- 
-Please see "README" to get more details.
-EOF
+  spec.description   = %q{Encode/Decode text with substitution cipher, please see "README" to get more details.}
   spec.homepage      = "https://github.com/sibevin/sub_cipher"
   spec.license       = "MIT"
 
