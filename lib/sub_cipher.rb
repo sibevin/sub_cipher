@@ -6,16 +6,16 @@ module SubCipher
 
   # The supported options
   SUPPORTED_OPTS = {
-    seed: {
-      abbr: :s,
-      type: String
+    :seed => {
+      :abbr => :s,
+      :type => String
     },
-    map: {
-      abbr: :m,
-      type: String
+    :map => {
+      :abbr => :m,
+      :type => String
     },
-    keep_case: {
-      abbr: :k
+    :keep_case => {
+      :abbr => :k
     },
   }
 
