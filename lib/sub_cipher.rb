@@ -38,9 +38,9 @@ module SubCipher
         end
         case key
         when :seed
-          @map = value.chars.uniq.shuffle
+          @map = value.chars.to_a.uniq.shuffle
         when :map
-          @map = value.chars.uniq
+          @map = value.chars.to_a.uniq
         when :keep_case
           @keep_case = (value ? true : false)
         end
