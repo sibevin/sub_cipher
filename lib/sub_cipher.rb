@@ -21,8 +21,8 @@ module SubCipher
 
   # The default options
   DEFAULT_OPTS = {
-    seed: [ALPHABETS.to_a, ALPHABETS.to_a.map{ |a| a.upcase }].flatten.join,
-    keep_case: true
+    :seed => [ALPHABETS.to_a, ALPHABETS.to_a.map{ |a| a.upcase }].flatten.join,
+    :keep_case => true
   }
 
   def SubCipher.gen(options = {})
