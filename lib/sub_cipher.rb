@@ -84,9 +84,9 @@ module SubCipher
       if @keep_case
         if reverse
           if @mapping.value?(char)
-            return @mapping.key(char)
+            return @mapping.index(char)
           elsif @mapping.value?(char.downcase)
-            return @mapping.key(char.downcase).upcase
+            return @mapping.index(char.downcase).upcase
           else
             return char
           end
