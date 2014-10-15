@@ -26,27 +26,31 @@ The `seed` and `map` method shows how to map the cipher, the above example means
 
 ### Seed
 
-Use `:s` (or `seed`) to map the given seeds only
+Use `:s` (or `:seed`) to map the given seeds only
 
     sc = SubCipher.gen(seed: "abcde")
     sc.encode("Here is a secret.")
     # "Hcrc is e scbrct."
     sc.decode("Hcrc is e scbrct.")
     # "Here is a secret."
+    sc.seed
+    # "abcde"
     sc.map
     # "edbac"
 
 ### Map
 
-Use `:m` (or `map`) option to initalize cipher with a map. Note that the `seed` option would be skipped if both `seed` and `map` options are given.
+Use `:m` (or `:map`) option to initalize cipher with a map. Note that the `:seed` option would be skipped if both `:seed` and `:map` options are given.
 
-    sc = SubCipher.gen(seed: "bedac")
+    sc = SubCipher.gen(seed: "bdeac")
     sc.encode("Here is a secret.")
     # "Hara is b saerat."
     sc.decode("Hara is b saerat.")
     # "Here is a secret."
+    sc.seed
+    # "abcde"
     sc.map
-    # "bedac"
+    # "bdeca"
 
 ### Keep Case
 
@@ -57,6 +61,8 @@ If you want to map letters with different cases to different letters, use `k: fa
     # "alXl wE s EleXlk."
     sc.decode("alXl wE s EleXlk.")
     # "Here is a secret."
+    sc.seed
+    # "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     sc.map
     # "PNAgWKOaxtCUdqHpIuJRhjTMnDsbeQlFiGwrzLfBvVYXEkZcoSmy"
 
@@ -67,6 +73,8 @@ If there is a seed(assigned by `seed` or `map` option) which is not an alphabet,
     # "HdrdAisA,AsdBrdtE"
     sc.decode("HdrdAisA,AsdBrdtE")
     # "Here is a secret."
+    sc.seed
+    # " ,.ABCDEabcde"
     sc.map
     # "AaE ebCc,DB.d"
 

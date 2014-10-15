@@ -12,35 +12,51 @@ Gem::Specification.new do |spec|
   spec.description   = <<-EOF
 Usage:
 
-Use default seeds(mixed-case alphabets, numbers, space, "," and ".") to generate the mapping
-
-    sc = SubCipher.new
-    sc.encode("Here is the secret.")
-    #
-    sc.decode("")
-    # "Here is the secret."
+    sc = SubCipher.gen
+    sc.encode("Here is a secret.")
+    # "Wyky gn q nyakyr."
+    sc.decode("Wyky gn q nyakyr.")
+    # "Here is a secret."
+    sc.seed
+    # "abcdefghijklmnopqrstuvwxyz"
     sc.map
-    # ""
+    # "qeahyftwgpjixodzbknrlscvum"
  
-Only map the given seeds
+Use :s (or :seed) to map the given seeds only
 
-    sc = SubCipher.new(seed: "abcde")
-    sc.encode("Here is the secret.")
-    # "Hcrc is tha scdrct."
-    sc.decode("Hcrc is thc scdrct.")
-    # "Here is the secret."
+    sc = SubCipher.gen(seed: "abcde")
+    sc.encode("Here is a secret.")
+    # "Hcrc is e scbrct."
+    sc.decode("Hcrc is e scbrct.")
+    # "Here is a secret."
+    sc.seed
+    # "abcde"
     sc.map
-    # "bedac"
+    # "edbac"
 
-Initalize cipher with a map. Note that the `seed` option would be skipped if both `seed` and `map` options are given.
+Use :m (or :map) option to initalize cipher with a map
 
-    sc = SubCipher.new(seed: "bedac")
-    sc.encode("Here is the secret.")
-    # "Hcrc is tha scdrct."
-    sc.decode("Hcrc is thc scdrct.")
-    # "Here is the secret."
+    sc = SubCipher.gen(seed: "bdeac")
+    sc.encode("Here is a secret.")
+    # "Hara is b saerat."
+    sc.decode("Hara is b saerat.")
+    # "Here is a secret."
+    sc.seed
+    # "abcde"
     sc.map
-    # "bedac"
+    # "bdeca"
+
+If you want to map letters with different cases to different letters, use "k: false" (or "keep_case: false") option.
+
+    sc = SubCipher.gen(keep_case: false)
+    sc.encode("Here is a secret.")
+    # "alXl wE s EleXlk."
+    sc.decode("alXl wE s EleXlk.")
+    # "Here is a secret."
+    sc.seed
+    # "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    sc.map
+    # "PNAgWKOaxtCUdqHpIuJRhjTMnDsbeQlFiGwrzLfBvVYXEkZcoSmy"
  
 Please see "README" to get more details.
 EOF
