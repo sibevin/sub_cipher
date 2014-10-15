@@ -101,7 +101,7 @@ module SubCipher
         end
       else
         if reverse
-          @mapping.value?(char) ? @mapping.key(char) : char
+          @mapping.value?(char) ? @mapping.index(char) : char
         else
           @mapping.key?(char) ? @mapping[char] : char
         end
