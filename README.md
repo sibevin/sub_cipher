@@ -94,7 +94,7 @@ Go to gem folder and run
 
 (Note that you need minitest ~> 5.0 to run these tests)
 
-# Contributing
+## Contributing
 
 1. Fork it ( https://github.com/sibevin/sub_cipher/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
