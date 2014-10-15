@@ -1,5 +1,9 @@
 module SubCipher
+
+  # A customized exception for SubCipher
   class SubCipherError < StandardError
+
+    # Errors used in SubCipher
     ERRORS = {
       :unknown_option => {
         :value => 1,
@@ -16,6 +20,12 @@ module SubCipher
     }
 
     attr_reader :code, :value, :msg, :info
+
+    # The SubCipherError constructor.
+    # @param error [Fixnum, String]
+    #   You can give a error number defined in the keys of {SubCipher::SubCipherError::ERRORS} or a string message for internal usage.
+    # @param info [Hash]
+    #   Anything you want to put in the info attribute of SubCipherError.
     def initialize(error, info = {})
       @code = error
       @info = info

@@ -25,11 +25,25 @@ module SubCipher
     :keep_case => true
   }
 
+  # The major method to generate a sub cipher.
+  # @param options [Hash]
+  #   The options to tell sub cipher how to encode/decode.
+  #   Three options :seed, :map and :keep_case are supported.
+  #   Please see {file:README} to get more examples
+  # @return [SubCipherObject]
+  #   The generated sub cipher.
+  # @raise [SubCipherError]
+  #   Please see {SubCipher::SubCipherError}
   def SubCipher.gen(options = {})
     SubCipherObject.new(options)
   end
 
+  # The sub cipher class.
   class SubCipherObject
+    # The sub cipher contructor.
+    # @param options (see SubCipher.gen)
+    # @return (see SubCipher.gen)
+    # @raise (see SubCipher.gen)
     def initialize(options)
       opts = check_opt(options)
       opts.each do |key, value|
@@ -63,23 +77,45 @@ module SubCipher
       end
     end
 
+    # Encode the given string.
+    # @param str [String]
+    #   The original string to encode.
+    # @return [String]
+    #   The encoded result.
     def encode(str)
       str.chars.map { |c| convert(c) }.join
     end
 
+    # Decode the given string.
+    # @param str [String]
+    #   The encoded string to decode.
+    # @return [String]
+    #   The decoded result.
     def decode(str)
       str.chars.map { |c| convert(c, true) }.join
     end
 
+    # Show the map string, for mapping display.
+    # For example, if the seed string is "abc" and map string is "cab",
+    # then the mapping is "a" => "c", "b" => "a", "c" => "b".
+    # @return [String]
+    #   The map string.
     def map
       @map.join
     end
 
+    # Show the seed string, for mapping display.
+    # For example, if the seed string is "abc" and map string is "cab",
+    # then the mapping is "a" => "c", "b" => "a", "c" => "b".
+    # @return [String]
+    #   The seed string.
     def seed
       @map.sort.join
     end
 
     private
+
+    # Covert single char with the mapping.
     def convert(char, reverse = false)
       if @keep_case
         if reverse
@@ -108,6 +144,7 @@ module SubCipher
       end
     end
 
+    # Check the given options.
     def check_opt(opts)
       SUPPORTED_OPTS.each do |key, value|
         if (opts[key] != nil) && opts.keys.include?(value[:abbr])

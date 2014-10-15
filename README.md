@@ -1,5 +1,13 @@
 # Sub(stitution) Cipher
 
+[![Gem Version](https://badge.fury.io/rb/sub_cipher.png)][gem]
+[![Build Status](https://travis-ci.org/sibevin/sub_cipher.png?branch=build)][travis]
+[![Coverage Status](https://coveralls.io/repos/sibevin/sub_cipher/badge.png?branch=cover-check)][coveralls]
+
+[gem]: https://rubygems.org/gems/sub_cipher
+[travis]: https://travis-ci.org/sibevin/sub_cipher
+[coveralls]:https://coveralls.io/r/sibevin/sub_cipher?branch=cover-check
+
 Encode/Decode text with the substitution cipher
 
 ## Installation
